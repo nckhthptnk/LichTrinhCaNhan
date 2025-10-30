@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch trình cá nhân</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thời Gian Biểu Học Thêm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
         body {
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -116,136 +116,79 @@
             color: #68d391;
         }
     </style>
-</head>
-<body class="bg-gray-50 min-h-full">
-    <main class="container mx-auto px-4 py-8">
-        <header class="text-center mb-8 relative">
-            <div class="absolute top-0 left-0">
-                <a href="https://nckhthptnk.github.io/minitkb/" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-md hover:shadow-lg inline-flex items-center gap-2">
-                    🏠 Trang chủ
-                </a>
-            </div>
-            <h1 class="text-3xl font-bold mb-2">📋 <span style="background: linear-gradient(135deg, #ff6b9d, #c44569); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Lịch Trình Cá Nhân</span></h1>
-            <p class="text-gray-600">Nhấp vào ô để chỉnh sửa thông tin</p>
-        </header>
-
-        <div class="mb-6 bg-white rounded-lg p-4 shadow-md">
-            <h3 class="text-lg font-semibold text-gray-800 mb-3">🎨 Chọn màu tiêu đề:</h3>
-            <div class="flex flex-wrap gap-3 justify-center mb-4">
-                <button onclick="changeHeaderColor('buttercup')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fffbeb;" title="Buttercup - Vàng rất nhạt"></button>
-                <button onclick="changeHeaderColor('soft-peach')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fff7ed;" title="Soft Peach - Cam rất nhạt"></button>
-                <button onclick="changeHeaderColor('pale-pink')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fdf2f8;" title="Pale Pink - Hồng rất nhạt"></button>
-                <button onclick="changeHeaderColor('lavender')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #f5f3ff;" title="Lavender - Tím rất nhạt"></button>
-                <button onclick="changeHeaderColor('cool-aqua')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #f0fdfa;" title="Cool Aqua - Xanh rất nhạt"></button>
-                <button onclick="changeHeaderColor('meadow-green')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #f0fdf4;" title="Meadow Green - Xanh lá rất nhạt"></button>
-                <button onclick="changeHeaderColor('soft-red')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fef2f2;" title="Soft Red - Đỏ rất nhạt"></button>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 border-2 border-gray-200">
-            <table class="w-full table-fixed border-collapse">
-                <thead>
-                    <tr id="headerRow" style="background-color: #fffbeb; color: #a16207;">
-                        <th class="text-left p-4 font-semibold border-r first:rounded-tl-2xl" style="border-color: #fbbf24;">Thời Gian</th>
-                        <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Hai</th>
-                        <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Ba</th>
-                        <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Tư</th>
-                        <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Năm</th>
-                        <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Sáu</th>
-                        <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Bảy</th>
-                        <th class="text-center p-4 font-semibold last:rounded-tr-2xl">Chủ Nhật</th>
-                    </tr>
-                </thead>
-                <tbody id="scheduleTable">
-                    <!-- Các hàng thời gian sẽ được tạo bằng JavaScript -->
-                </tbody>
-            </table>
-        </div>
-
-
-
-        <div class="flex flex-wrap gap-3 justify-center mb-8">
-            <button onclick="addNewTimeSlot()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg">
-                Thêm Khung Giờ
-            </button>
-            <button onclick="saveSchedule()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg">
-                Lưu Thời Gian Biểu
-            </button>
-            <button onclick="loadSchedule()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg">
-                Tải Thời Gian Biểu
-            </button>
-            <button onclick="clearSchedule()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg">
-                Xóa Tất Cả
-            </button>
-            <button onclick="downloadScheduleImage()" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg">
-                📱 Tải về điện thoại
-            </button>
-
-        </div>
-
-        <div class="bg-white rounded-lg p-6 shadow-md">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Hướng dẫn sử dụng</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li>• Nhấp vào ô thời gian để chỉnh sửa giờ học</li>
-                <li>• Nhấp vào ô môn học để nhập tên môn và địa chỉ</li>
-                <li>• Nhấp nút "+ Thêm" để tạo việc cần làm mới</li>
-                <li>• Tick vào checkbox khi hoàn thành từng việc</li>
-                <li>• Nhấn Enter để thêm việc tiếp theo, × để xóa</li>
-                <li>• Nhấp "Thêm Khung Giờ" để tạo thêm thời gian mới</li>
-                <li>• Di chuột qua ô thời gian và nhấp nút × để xóa hàng</li>
-            </ul>
-        </div>
-    </main>
-
-    <!-- Container ẩn để tạo ảnh mobile -->
-    <div id="mobileScheduleContainer" class="mobile-schedule">
-        <!-- Nội dung sẽ được tạo bằng JavaScript -->
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-50 min-h-full">
+  <main class="container mx-auto px-4 py-8">
+   <header class="text-center mb-8 relative">
+    <div class="absolute top-0 left-0"><a href="https://nckhthptnk.github.io/minitkb/" target="_blank" rel="noopener noreferrer" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-md hover:shadow-lg inline-flex items-center gap-2"> 🏠 Trang chủ </a>
     </div>
-
-    <!-- Modal chỉnh sửa môn học -->
-    <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-6 w-96 max-w-90vw">
-            <h3 class="text-xl font-semibold mb-4 text-gray-800">Chỉnh sửa thông tin học</h3>
-            <div class="space-y-4">
-                <div>
-                    <label for="subjectSelect" class="block text-sm font-medium text-gray-700 mb-1">Môn học:</label>
-                    <select id="subjectSelect" onchange="handleSubjectChange()" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <option value="">-- Chọn môn học --</option>
-                        <option value="Toán">Toán</option>
-                        <option value="Ngữ văn">Ngữ văn</option>
-                        <option value="Tiếng Anh">Tiếng Anh</option>
-                        <option value="Vật lí">Vật lí</option>
-                        <option value="Hóa học">Hóa học</option>
-                        <option value="Sinh học">Sinh học</option>
-                        <option value="Lịch sử">Lịch sử</option>
-                        <option value="Địa lí">Địa lí</option>
-                        <option value="Quốc phòng">Quốc phòng</option>
-                        <option value="Mĩ thuật">Mĩ thuật</option>
-                        <option value="Âm nhạc">Âm nhạc</option>
-                        <option value="Tin học">Tin học</option>
-                        <option value="KTPL">KTPL</option>
-                        <option value="GDĐP">GDĐP</option>
-                        <option value="TNHN">TNHN</option>
-                        <option value="Thể dục">Thể dục</option>
-                        <option value="Công nghệ">Công nghệ</option>
-                        <option value="other">🖊️ Nhập môn khác...</option>
-                    </select>
-                    <input type="text" id="customSubjectInput" class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Nhập tên môn học khác..." style="display: none;">
-                </div>
-                <div>
-                    <label for="addressInput" class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ học:</label>
-                    <input type="text" id="addressInput" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Ví dụ: 123 Đường ABC, Quận 1">
-                </div>
-            </div>
-            <div class="flex gap-3 mt-6">
-                <button onclick="saveEdit()" class="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white py-2 rounded-md font-medium transition-colors">Lưu</button>
-                <button onclick="cancelEdit()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 rounded-md font-medium transition-colors">Hủy</button>
-                <button onclick="clearCell()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md font-medium transition-colors">Xóa</button>
-            </div>
-        </div>
+    <h1 class="text-3xl font-bold mb-2">📋 <span style="background: linear-gradient(135deg, #ff6b9d, #c44569); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Lịch Trình Cá Nhân</span></h1>
+    <p class="text-gray-600">Nhấp vào ô để chỉnh sửa thông tin</p>
+   </header>
+   <div class="mb-6 bg-white rounded-lg p-4 shadow-md">
+    <h3 class="text-lg font-semibold text-gray-800 mb-3">🎨 Chọn màu tiêu đề:</h3>
+    <div class="flex flex-wrap gap-3 justify-center mb-4"><button onclick="changeHeaderColor('buttercup')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fffbeb;" title="Buttercup - Vàng rất nhạt"></button> <button onclick="changeHeaderColor('soft-peach')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fff7ed;" title="Soft Peach - Cam rất nhạt"></button> <button onclick="changeHeaderColor('pale-pink')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fdf2f8;" title="Pale Pink - Hồng rất nhạt"></button> <button onclick="changeHeaderColor('lavender')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #f5f3ff;" title="Lavender - Tím rất nhạt"></button> <button onclick="changeHeaderColor('cool-aqua')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #f0fdfa;" title="Cool Aqua - Xanh rất nhạt"></button> <button onclick="changeHeaderColor('meadow-green')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #f0fdf4;" title="Meadow Green - Xanh lá rất nhạt"></button> <button onclick="changeHeaderColor('soft-red')" class="w-12 h-12 rounded-lg border-2 border-gray-300 hover:border-gray-500 transition-colors" style="background-color: #fef2f2;" title="Soft Red - Đỏ rất nhạt"></button>
     </div>
-
-    <script>
+   </div>
+   <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 border-2 border-gray-200">
+    <table class="w-full table-fixed border-collapse">
+     <thead>
+      <tr id="headerRow" style="background-color: #fffbeb; color: #a16207;">
+       <th class="text-left p-4 font-semibold border-r first:rounded-tl-2xl" style="border-color: #fbbf24;">Thời Gian</th>
+       <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Hai</th>
+       <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Ba</th>
+       <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Tư</th>
+       <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Năm</th>
+       <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Sáu</th>
+       <th class="text-center p-4 font-semibold border-r" style="border-color: #fbbf24;">Thứ Bảy</th>
+       <th class="text-center p-4 font-semibold last:rounded-tr-2xl">Chủ Nhật</th>
+      </tr>
+     </thead>
+     <tbody id="scheduleTable"><!-- Các hàng thời gian sẽ được tạo bằng JavaScript -->
+     </tbody>
+    </table>
+   </div>
+   <div class="flex flex-wrap gap-3 justify-center mb-8"><button onclick="addNewTimeSlot()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"> Thêm Khung Giờ </button> <button onclick="saveSchedule()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"> Lưu Thời Gian Biểu </button> <button onclick="loadSchedule()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"> Tải Thời Gian Biểu </button> <button onclick="clearSchedule()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"> Xóa Tất Cả </button> <button onclick="downloadScheduleImage()" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"> 📱 Tải về điện thoại </button>
+   </div>
+   <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6 shadow-md mb-6 border-l-4 border-purple-500">
+    <div class="text-center">
+     <h3 class="text-xl font-semibold text-purple-800 mb-3">🔥 MOTIVATION 🔥</h3>
+     <p class="text-lg text-purple-700 italic font-medium leading-relaxed">"Mong rằng ước mơ của cậu sẽ không chỉ lưu lại mãi là ước mơ"</p>
+     <p class="text-sm text-purple-600 mt-2 font-semibold">- Snooze -</p>
+    </div>
+   </div>
+   <div class="bg-white rounded-lg p-6 shadow-md">
+    <h3 class="text-xl font-semibold text-gray-800 mb-4">Hướng dẫn sử dụng</h3>
+    <ul class="text-gray-600 space-y-2">
+     <li>• Nhấp vào ô thời gian để chỉnh sửa giờ học</li>
+     <li>• Nhấp vào ô môn học để nhập tên môn và địa chỉ</li>
+     <li>• Nhấp nút "+ Thêm" để tạo việc cần làm mới</li>
+     <li>• Tick vào checkbox khi hoàn thành từng việc</li>
+     <li>• Nhấn Enter để thêm việc tiếp theo, × để xóa</li>
+     <li>• Nhấp "Thêm Khung Giờ" để tạo thêm thời gian mới</li>
+     <li>• Di chuột qua ô thời gian và nhấp nút × để xóa hàng</li>
+    </ul>
+   </div>
+  </main><!-- Container ẩn để tạo ảnh mobile -->
+  <div id="mobileScheduleContainer" class="mobile-schedule"><!-- Nội dung sẽ được tạo bằng JavaScript -->
+  </div><!-- Modal chỉnh sửa môn học -->
+  <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+   <div class="bg-white rounded-lg p-6 w-96 max-w-90vw">
+    <h3 class="text-xl font-semibold mb-4 text-gray-800">Chỉnh sửa thông tin học</h3>
+    <div class="space-y-4">
+     <div><label for="subjectSelect" class="block text-sm font-medium text-gray-700 mb-1">Môn học:</label> <select id="subjectSelect" onchange="handleSubjectChange()" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"> <option value="">-- Chọn môn học --</option> <option value="Toán">Toán</option> <option value="Ngữ văn">Ngữ văn</option> <option value="Tiếng Anh">Tiếng Anh</option> <option value="Vật lí">Vật lí</option> <option value="Hóa học">Hóa học</option> <option value="Sinh học">Sinh học</option> <option value="Lịch sử">Lịch sử</option> <option value="Địa lí">Địa lí</option> <option value="Quốc phòng">Quốc phòng</option> <option value="Mĩ thuật">Mĩ thuật</option> <option value="Âm nhạc">Âm nhạc</option> <option value="Tin học">Tin học</option> <option value="KTPL">KTPL</option> <option value="GDĐP">GDĐP</option> <option value="TNHN">TNHN</option> <option value="Thể dục">Thể dục</option> <option value="Công nghệ">Công nghệ</option> <option value="other">🖊️ Nhập môn khác...</option> </select> <input type="text" id="customSubjectInput" class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Nhập tên môn học khác..." style="display: none;">
+     </div>
+     <div><label for="addressInput" class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ học:</label> <input type="text" id="addressInput" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Ví dụ: 123 Đường ABC, Quận 1">
+     </div>
+    </div>
+    <div class="flex gap-3 mt-6"><button onclick="saveEdit()" class="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white py-2 rounded-md font-medium transition-colors">Lưu</button> <button onclick="cancelEdit()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 rounded-md font-medium transition-colors">Hủy</button> <button onclick="clearCell()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md font-medium transition-colors">Xóa</button>
+    </div>
+   </div>
+  </div>
+  <script>
         let currentEditCell = null;
         let scheduleData = {};
 
@@ -1202,6 +1145,8 @@
             }
         }
 
+
+
         // Khởi tạo khi trang được tải
         document.addEventListener('DOMContentLoaded', function() {
             // Xóa dữ liệu cũ
@@ -1215,9 +1160,9 @@
             
             // Tải thư viện html2canvas
             loadHtml2Canvas();
+
+
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996904f3d413dd53',t:'MTc2MTgwNzQ1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996aa09ad240c7d2',t:'MTc2MTgyNDMxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
